@@ -46,7 +46,7 @@ function LoginModal(props: any) {
                   setIsLoading(true);
                 }}
                 color="primary"
-                onPress={onClose}
+                onPress={props.handleClose()}
               >
                 Login
               </Button>
