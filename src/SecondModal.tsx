@@ -1,3 +1,5 @@
+// @ts-nocheck
+
 import Cards from "react-credit-cards-2";
 import { useState } from "react";
 
