@@ -21,7 +21,7 @@ function LoginModal(props: any) {
       onClose={props.handleClose}
     >
       <ModalContent>
-        {(onClose) => (
+        {() => (
           <>
             <ModalHeader className="flex flex-col gap-1 text-center">
               Login
