@@ -1,4 +1,3 @@
-import React from "react";
 import HyperSpaceGraphic from "./assets/Hyperspace.png";
 
 function FirstModal() {

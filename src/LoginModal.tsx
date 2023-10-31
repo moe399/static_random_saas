@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import {
   Modal,
   ModalContent,
@@ -6,7 +6,6 @@ import {
   ModalBody,
   ModalFooter,
   Button,
-  Divider,
 } from "@nextui-org/react";
 import { Input } from "@nextui-org/react";
 import { Link } from "@nextui-org/react";

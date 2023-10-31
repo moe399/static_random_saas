@@ -1,6 +1,5 @@
 import { useState } from "react";
-import reactLogo from "./assets/react.svg";
-import viteLogo from "/vite.svg";
+
 import {
   Navbar,
   NavbarBrand,
@@ -19,8 +18,6 @@ import LoginModal from "./LoginModal";
 import StartTrialModal from "./StartTrialModal";
 
 function App() {
-  const [count, setCount] = useState(0);
-
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const [loginModalOpen, setLoginModalOpen] = useState(false);

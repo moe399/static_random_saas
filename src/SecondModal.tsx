@@ -1,4 +1,3 @@
-import React from "react";
 import Cards from "react-credit-cards-2";
 import { useState } from "react";
 
@@ -12,8 +11,9 @@ function SecondModal() {
     expiry: "",
     cvc: "",
     name: "",
-    focus: "",
   });
+
+  const [focus, setFocus] = useState("");
 
   const handleInputChange = (e: any) => {
     const { name, value } = e.target;
@@ -22,7 +22,8 @@ function SecondModal() {
   };
 
   const handleInputFocus = (e: any) => {
-    setState((prev) => ({ ...prev, focus: e.target.name }));
+    // setState((prev) => ({ ...prev, focus: e.target.name }));
+    setFocus(e.target.name);
   };
 
   const [buttonLoadingPay, setButtonLoadingPay] = useState(false);
@@ -35,7 +36,7 @@ function SecondModal() {
           expiry={state.expiry}
           cvc={state.cvc}
           name={state.name}
-          focused={state.focus}
+          focused={focus}
         />
         <form className="flex flex-col gap-8 mt-8">
           <Input
