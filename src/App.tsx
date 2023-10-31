@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 import {
   Navbar,
@@ -20,30 +20,21 @@ import StartTrialModal from "./StartTrialModal";
 function App() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
-  const [loginModalOpen, setLoginModalOpen] = useState(false);
-
   const [beginTrialModalOpen, setBeginTrialModalOpen] = useState(false);
 
-  function handleCloseLoginModal() {
-    setLoginModalOpen(false);
+  const [loginModalState, setLoginModalState] = useState(false);
+
+  // function handleCloseLoginModal() {
+  //   setLoginModalState(false);
+  // }
+
+  function handleCloseModalLogin() {
+    setLoginModalState(false);
   }
 
   function handleCloseTrialModal() {
     setBeginTrialModalOpen(false);
   }
-
-  const menuItems = [
-    "Profile",
-    "Dashboard",
-    "Activity",
-    "Analytics",
-    "System",
-    "Deployments",
-    "My Settings",
-    "Team Settings",
-    "Help & Feedback",
-    "Log Out",
-  ];
 
   return (
     <div className="px-8 flex flex-col items-center lg:px-16">
@@ -86,7 +77,7 @@ function App() {
               className="text-green-600"
               href="#"
               onClick={() => {
-                setLoginModalOpen(true);
+                setLoginModalState(true);
               }}
             >
               Login
@@ -105,24 +96,16 @@ function App() {
           </NavbarItem>
         </NavbarContent>
         <NavbarMenu>
-          {menuItems.map((item, index) => (
-            <NavbarMenuItem key={`${item}-${index}`}>
-              <Link
-                color={
-                  index === 2
-                    ? "primary"
-                    : index === menuItems.length - 1
-                    ? "danger"
-                    : "foreground"
-                }
-                className="w-full"
-                href="#"
-                size="lg"
-              >
-                {item}
-              </Link>
-            </NavbarMenuItem>
-          ))}
+          <NavbarMenuItem>
+            <Link
+              onClick={() => setLoginModalState(true)}
+              className="w-full"
+              href="#"
+              size="lg"
+            >
+              Login
+            </Link>
+          </NavbarMenuItem>
         </NavbarMenu>
       </Navbar>
 
@@ -176,7 +159,7 @@ function App() {
         </div>
       </div>
 
-      <LoginModal open={loginModalOpen} handleClose={handleCloseLoginModal} />
+      <LoginModal open={loginModalState} handleClose={handleCloseModalLogin} />
       <StartTrialModal
         open={beginTrialModalOpen}
         handleClose={handleCloseTrialModal}
